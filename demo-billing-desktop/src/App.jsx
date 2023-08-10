@@ -6,7 +6,7 @@ import { Cart, CheckoutScreen } from "../screens";
 function App() {
   return (
     <Router>
-      <div className="w-[100vw] h-max min-h-[100vh] px-[10vw] bg-[#13131A] text-white">
+      <div className="w-[100vw] max-h-[100vh] px-[10vw] bg-[#13131A] text-white">
         <Navbar />
         <Routes>
           <Route path='/' element={<CheckoutScreen />} />

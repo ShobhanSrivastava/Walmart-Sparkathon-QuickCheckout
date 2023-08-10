@@ -47,13 +47,9 @@ export default function Cart() {
                             cartData && <span className="text-sm ml-2">({(cartData.items.length)})</span>
                         }
                     </div>
-                    <div className="flex items-center">
-                        { cartData &&  <span className="mr-4 font-semibold text-3xl">Total: ₹{ cartData.total }</span>}
-                        <Button label="Pay" />
-                    </div>
                 </div>
-                <div className="h-full w-100 flex items-center">
-                    <div className="h-[80%] w-[100%] bg-[#1C1C24] rounded-lg flex align-items items-center">
+                <div className="h-full w-100 flex items-start justify-between">
+                    <div className="h-[60vh] w-[60.5%] bg-[#1C1C24] rounded-lg flex flex-col align-items items-start p-6 overflow-scroll no-scrollbar">
                         {
                             cartData?.items.map(item => 
                                 <CartItem 
@@ -66,6 +62,27 @@ export default function Cart() {
                                 />
                             )
                         }
+                    </div>
+
+                    <div className="h-[80%] w-[37.5%] bg-[#1C1C24] rounded-lg flex flex-col align-items items-start p-8">
+                        <span className="font-semibold text-3xl mb-8">Bill Details</span>
+
+                        <div className="flex flex-col w-full">
+                            <span>Number of items: { cartData?.items.length }</span>
+                            <span className="text-lg mt-4">Summary</span>
+                            <div className="flex flex-col mb-4 font-light text-sm w-full">
+                                {
+                                    cartData?.items.map(item => 
+                                        <span className="w-full flex justify-between">
+                                            <span>{item.quantity} x {item.product.name}</span>
+                                            <span>₹ {item.product.price}</span>
+                                        </span>
+                                    )
+                                }
+                            </div>
+                            <span className="mb-4 text-lg">Total : ₹ { cartData?.total }</span>
+                            <Button label="Pay" />
+                        </div>
                     </div>
                 </div>
             </div>
