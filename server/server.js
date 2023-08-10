@@ -2,6 +2,7 @@
 
 // Library to setup an HTTP server application
 const express = require('express');
+const cors = require('cors');
 
 // ----- File Imports -----
 
@@ -16,6 +17,7 @@ const { PORT } = require('./config/envConfig');
 // Create an instance of the express server application
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 // Connect to the DB

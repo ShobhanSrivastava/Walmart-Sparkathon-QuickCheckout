@@ -66,9 +66,9 @@ module.exports = {
 
     // Get cart details
     async getCartDetails(req, res) {
-        const { phoneNumber } = req.body;
+        const { phoneNumber } = req.params;
 
-        const cartDetails = await Cart.findOne({ phoneNumber });
+        const cartDetails = await Cart.findOne({ phoneNumber }).populate({ path: 'items.product' });
 
         res.send(cartDetails);
     }

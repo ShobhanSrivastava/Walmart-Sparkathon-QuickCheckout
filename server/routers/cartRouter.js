@@ -17,7 +17,7 @@ router.post('/remove-from-cart', cartController.removeFromCart);
 router.post('/clear-cart', cartController.clearCart);
 
 // Route to get all the cart details
-router.get('/get-cart-details', cartController.getCartDetails);
+router.get('/get-cart-details/:phoneNumber', cartController.getCartDetails);
 
 // Export the router
 module.exports = router;
